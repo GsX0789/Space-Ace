@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://c3owtn05ovjal"]
+
+[ext_resource type="Texture2D" uid="uid://bid65y4x6xy6i" path="res://assets/misc/shield_gold.png" id="1_kwjll"]
+[ext_resource type="Script" path="res://Scenes/PowerUp/power_up.gd" id="1_ocbyc"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_xewmd"]
+radius = 7.0
+
+[node name="PowerUp" type="Area2D"]
+collision_layer = 0
+script = ExtResource("1_ocbyc")
+
+[node name="pSprite" type="Sprite2D" parent="."]
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("1_kwjll")
+
+[node name="pCollision" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_xewmd")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+
+[node name="Sound" type="AudioStreamPlayer2D" parent="."]
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

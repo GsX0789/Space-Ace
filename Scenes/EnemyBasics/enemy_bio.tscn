@@ -1,0 +1,41 @@
+[gd_scene load_steps=4 format=3 uid="uid://byh37tmypcfvc"]
+
+[ext_resource type="PackedScene" uid="uid://bu8r2t3slnknm" path="res://Scenes/EnemyBasics/enemy_basic.tscn" id="1_5rq87"]
+[ext_resource type="PackedScene" uid="uid://skuax2isxvt6" path="res://Scenes/Lasers/enemy_laser.tscn" id="2_ylcgd"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0mgyh"]
+radius = 14.0
+height = 28.0
+
+[node name="EnemyBio" instance=ExtResource("1_5rq87")]
+canShoot = true
+bulletScene = ExtResource("2_ylcgd")
+bullet_speed = 200.0
+time_variation = 0.1
+kill_me_score = 20
+damage_taken = 25
+
+[node name="AnimatedSprite2D" parent="." index="0"]
+flip_v = true
+
+[node name="Marker2D" type="Marker2D" parent="Booms" index="0"]
+position = Vector2(0, -5)
+
+[node name="Marker2D2" type="Marker2D" parent="Booms" index="1"]
+position = Vector2(0, 10)
+
+[node name="CollisionArea" parent="." index="4"]
+collision_layer = 2
+collision_mask = 5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CollisionArea" index="0"]
+position = Vector2(0, 4)
+rotation = -1.57079
+shape = SubResource("CapsuleShape2D_0mgyh")
+
+[node name="HealthBar" parent="." index="5"]
+offset_left = -12.0
+offset_top = -17.0
+offset_right = 12.0
+offset_bottom = -15.0
+maxHealth = 120

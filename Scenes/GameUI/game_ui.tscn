@@ -1,0 +1,60 @@
+[gd_scene load_steps=5 format=3 uid="uid://b4qep4c7arthk"]
+
+[ext_resource type="FontFile" uid="uid://dh48nohc5atcx" path="res://assets/fonts/gemunu-libre-v8-latin-700.ttf" id="1_5ltop"]
+[ext_resource type="Script" path="res://Scenes/GameUI/game_ui.gd" id="1_kyuj5"]
+[ext_resource type="PackedScene" uid="uid://ljm32ustfu0" path="res://Scenes/UI/HealthBar/health_bar.tscn" id="2_ag0s4"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_fnw71"]
+font = ExtResource("1_5ltop")
+font_size = 32
+outline_size = 10
+outline_color = Color(0, 0.564706, 0, 1)
+
+[node name="GameUI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_kyuj5")
+
+[node name="HeadUp" type="ColorRect" parent="."]
+custom_minimum_size = Vector2(18, 72)
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+grow_horizontal = 2
+color = Color(0.0235294, 0.121569, 0.2, 0.666667)
+
+[node name="MC" type="MarginContainer" parent="HeadUp"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 12
+
+[node name="HBPlayerINF" type="HBoxContainer" parent="HeadUp/MC"]
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="HealthBar" parent="HeadUp/MC/HBPlayerINF" instance=ExtResource("2_ag0s4")]
+custom_minimum_size = Vector2(150, 18)
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="ScoreLabel" type="Label" parent="HeadUp/MC/HBPlayerINF"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 6
+text = "000000"
+label_settings = SubResource("LabelSettings_fnw71")
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[connection signal="died" from="HeadUp/MC/HBPlayerINF/HealthBar" to="." method="_on_health_bar_died"]

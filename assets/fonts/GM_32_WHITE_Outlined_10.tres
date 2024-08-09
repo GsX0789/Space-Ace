@@ -1,0 +1,9 @@
+[gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://6qes4s7ub2el"]
+
+[ext_resource type="FontFile" uid="uid://dh48nohc5atcx" path="res://assets/fonts/gemunu-libre-v8-latin-700.ttf" id="1_scrvi"]
+
+[resource]
+font = ExtResource("1_scrvi")
+font_size = 32
+outline_size = 10
+outline_color = Color(0.870588, 0.14902, 0.160784, 1)

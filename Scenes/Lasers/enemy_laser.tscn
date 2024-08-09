@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://skuax2isxvt6"]
+
+[ext_resource type="PackedScene" uid="uid://coictnklpok47" path="res://Scenes/Lasers/laser_base.tscn" id="1_hftff"]
+[ext_resource type="Texture2D" uid="uid://cdebyk0e1iuk0" path="res://assets/lasers/laserRed03.png" id="2_kgs5d"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ttibw"]
+size = Vector2(4, 14)
+
+[node name="enemyLaser" groups=["enemyBullet"] instance=ExtResource("1_hftff")]
+collision_layer = 8
+collision_mask = 1
+
+[node name="ELaser" type="Sprite2D" parent="." index="1"]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_kgs5d")
+
+[node name="CS2D" type="CollisionShape2D" parent="." index="2"]
+shape = SubResource("RectangleShape2D_ttibw")

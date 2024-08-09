@@ -1,0 +1,78 @@
+[gd_scene load_steps=6 format=3 uid="uid://q15hc82d7gyl"]
+
+[ext_resource type="FontFile" uid="uid://bdae1uueyu2n5" path="res://assets/fonts/LuckiestGuy-Regular.ttf" id="1_3xlws"]
+[ext_resource type="Script" path="res://Scenes/UI/GameOver/game_over_ui.gd" id="1_yni2h"]
+[ext_resource type="FontFile" uid="uid://dh48nohc5atcx" path="res://assets/fonts/gemunu-libre-v8-latin-700.ttf" id="2_43a0g"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_3lf07"]
+font = ExtResource("1_3xlws")
+font_size = 98
+font_color = Color(0, 0.556863, 0.513726, 1)
+shadow_size = 10
+shadow_color = Color(0.00544903, 0.267365, 0.280757, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_uek0w"]
+font = ExtResource("2_43a0g")
+font_size = 32
+outline_size = 10
+outline_color = Color(0.00392157, 0.266667, 0.282353, 1)
+
+[node name="GameOverUI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_yni2h")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.184314, 0.0313726, 0.0666667, 0.713726)
+
+[node name="MC" type="MarginContainer" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 36
+theme_override_constants/margin_top = 36
+theme_override_constants/margin_right = 36
+theme_override_constants/margin_bottom = 36
+
+[node name="TitleLabel" type="Label" parent="ColorRect/MC"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+text = "Game Over"
+label_settings = SubResource("LabelSettings_3lf07")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ScoreInfo" type="Label" parent="ColorRect/MC"]
+layout_mode = 2
+text = "Score: 00000 - (Best: 00000)"
+label_settings = SubResource("LabelSettings_uek0w")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Info1" type="Label" parent="ColorRect/MC"]
+layout_mode = 2
+size_flags_vertical = 8
+text = "Press Space to go to the menu"
+label_settings = SubResource("LabelSettings_uek0w")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="GMTimer" type="Timer" parent="."]
+wait_time = 1.5
+one_shot = true
+
+[connection signal="timeout" from="GMTimer" to="." method="_on_gm_timer_timeout"]

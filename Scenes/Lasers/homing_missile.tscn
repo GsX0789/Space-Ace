@@ -1,0 +1,42 @@
+[gd_scene load_steps=4 format=3 uid="uid://bw26ryohns00l"]
+
+[ext_resource type="Script" path="res://Scenes/Lasers/homing_missile.gd" id="1_3y0q8"]
+[ext_resource type="Texture2D" uid="uid://drghdfbdj0a77" path="res://assets/lasers/spaceMissiles_040.png" id="1_dwf5s"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_h8von"]
+radius = 4.0
+
+[node name="HomingMissile" type="Area2D" groups=["homingMissile"]]
+collision_layer = 24
+collision_mask = 5
+script = ExtResource("1_3y0q8")
+
+[node name="MissileSprite" type="Sprite2D" parent="."]
+rotation = 1.5708
+texture = ExtResource("1_dwf5s")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_h8von")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+position = Vector2(-20.08, 0)
+rotation = 1.5708
+amount = 20
+lifetime = 0.4
+speed_scale = 1.4
+explosiveness = 0.2
+randomness = 0.3
+lifetime_randomness = 0.2
+local_coords = true
+emission_shape = 3
+emission_rect_extents = Vector2(3, 2)
+spread = 22.25
+angular_velocity_min = -13.58
+radial_accel_min = -5.66
+radial_accel_max = 9.43
+scale_amount_min = 0.8
+scale_amount_max = 1.6
+color = Color(0.93, 0.682, 0, 1)
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

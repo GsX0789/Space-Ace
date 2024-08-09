@@ -1,0 +1,318 @@
+[gd_scene load_steps=24 format=3 uid="uid://dcrdrar44lfpp"]
+
+[ext_resource type="Script" path="res://Scenes/TutorialScene/tutorial.gd" id="1_5nymw"]
+[ext_resource type="Texture2D" uid="uid://6kp5trul33pf" path="res://assets/backgrounds/GalaxyUno.png" id="1_j0vh0"]
+[ext_resource type="Texture2D" uid="uid://bg4bcdk2cqtjf" path="res://assets/backgrounds/spr_stars01.png" id="2_ex2bt"]
+[ext_resource type="Texture2D" uid="uid://ctykdcse7k0sb" path="res://assets/backgrounds/spr_stars02.png" id="3_im6sa"]
+[ext_resource type="FontFile" uid="uid://dh48nohc5atcx" path="res://assets/fonts/gemunu-libre-v8-latin-700.ttf" id="4_03l1t"]
+[ext_resource type="FontFile" uid="uid://bdae1uueyu2n5" path="res://assets/fonts/LuckiestGuy-Regular.ttf" id="4_aidsn"]
+[ext_resource type="Texture2D" uid="uid://cpufo0mi6ejt0" path="res://assets/ships/ship_human.png" id="5_g4v58"]
+[ext_resource type="Texture2D" uid="uid://b1kor0uodtdph" path="res://assets/ships/saucer_1.png" id="6_4hh6i"]
+[ext_resource type="Texture2D" uid="uid://dfhsalptgtc0w" path="res://assets/lasers/laserBlue03.png" id="6_uarqd"]
+[ext_resource type="Texture2D" uid="uid://ypbtstksbomu" path="res://assets/ships/biomech_1.png" id="7_y2m7r"]
+[ext_resource type="Texture2D" uid="uid://bjr6p472d0fsr" path="res://assets/ships/bomber_1.png" id="8_rcimq"]
+[ext_resource type="Texture2D" uid="uid://x642fenw3gqp" path="res://assets/ships/zipper_1.png" id="9_rr3xs"]
+[ext_resource type="Texture2D" uid="uid://3cn8oc6lucpd" path="res://assets/misc/powerupGreen_bolt.png" id="10_a6il6"]
+[ext_resource type="Texture2D" uid="uid://bid65y4x6xy6i" path="res://assets/misc/shield_gold.png" id="11_rcpcq"]
+[ext_resource type="Texture2D" uid="uid://c8tvd88ap4383" path="res://assets/ui/blue_button00.png" id="15_cps0r"]
+[ext_resource type="Texture2D" uid="uid://cvjmuyno8781x" path="res://assets/ui/green_button00.png" id="16_17b55"]
+[ext_resource type="Texture2D" uid="uid://cdiisv0qlrqpq" path="res://assets/ui/yellow_button00.png" id="17_mwk2l"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_q52in"]
+font = ExtResource("4_03l1t")
+font_size = 18
+outline_size = 10
+outline_color = Color(0.202236, 0.520926, 0.651095, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_swi3v"]
+font = ExtResource("4_03l1t")
+font_size = 18
+outline_size = 10
+outline_color = Color(0.202236, 0.520926, 0.651095, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_ers88"]
+font = ExtResource("4_03l1t")
+font_size = 18
+outline_size = 10
+outline_color = Color(0.202236, 0.520926, 0.651095, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_v6215"]
+font = ExtResource("4_03l1t")
+font_size = 18
+outline_size = 10
+outline_color = Color(0.202236, 0.520926, 0.651095, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_p86ug"]
+font = ExtResource("4_aidsn")
+font_size = 98
+font_color = Color(0.87, 0.1479, 0.159935, 1)
+outline_size = 10
+
+[sub_resource type="LabelSettings" id="LabelSettings_xl7rp"]
+font = ExtResource("4_03l1t")
+font_size = 32
+outline_size = 10
+outline_color = Color(0.2362, 0.559043, 0.303142, 1)
+
+[node name="Tutorial" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_5nymw")
+
+[node name="MainBG1" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -500.0
+offset_bottom = 500.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_j0vh0")
+
+[node name="StarsBG1" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -880.0
+offset_top = -980.0
+offset_right = 880.0
+offset_bottom = 980.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_ex2bt")
+
+[node name="StarsBG2" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -880.0
+offset_top = -980.0
+offset_right = 880.0
+offset_bottom = 980.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_im6sa")
+
+[node name="MC" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 48
+theme_override_constants/margin_top = 48
+theme_override_constants/margin_right = 48
+theme_override_constants/margin_bottom = 96
+
+[node name="Info1_EN" type="Label" parent="MC"]
+layout_mode = 2
+size_flags_horizontal = 0
+text = "Press Space to shoot on enemies
+Move with WASD or key arrows"
+label_settings = SubResource("LabelSettings_q52in")
+
+[node name="Info1_BR" type="Label" parent="MC"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 0
+text = "Pressione Space para atirar nos inimigos.
+Utilize WASD ou as setas para se mover !"
+label_settings = SubResource("LabelSettings_q52in")
+
+[node name="Info2_EN" type="Label" parent="MC"]
+layout_mode = 2
+size_flags_horizontal = 8
+text = "Enemies can drop shield and health 
+power ups!!"
+label_settings = SubResource("LabelSettings_swi3v")
+horizontal_alignment = 1
+
+[node name="Info2_BR" type="Label" parent="MC"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 8
+text = "Inimigos podem deixar cair poderes
+de vida ou escudo!!"
+label_settings = SubResource("LabelSettings_swi3v")
+horizontal_alignment = 1
+
+[node name="Info3_EN" type="Label" parent="MC"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+text = "As the game progress it gets harder"
+label_settings = SubResource("LabelSettings_ers88")
+horizontal_alignment = 1
+
+[node name="Info3_BR" type="Label" parent="MC"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+text = "Conforme o jogo avança, os inimigos ficam mais complicados!!!"
+label_settings = SubResource("LabelSettings_ers88")
+horizontal_alignment = 1
+
+[node name="Info4_EN" type="Label" parent="MC"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "
+
+
+
+
+Caution with this one,
+it's shoots a homing missile!!!!"
+label_settings = SubResource("LabelSettings_v6215")
+horizontal_alignment = 1
+
+[node name="Info4_BR" type="Label" parent="MC"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 4
+text = "
+
+
+
+
+Cuidado com essa nave,
+Ela dispara misseis teleguiados"
+label_settings = SubResource("LabelSettings_v6215")
+horizontal_alignment = 1
+
+[node name="TutorialTitle" type="Label" parent="MC"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+text = "Tutorial"
+label_settings = SubResource("LabelSettings_p86ug")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SpritesT" type="Node2D" parent="."]
+
+[node name="PlayerSprite" type="Sprite2D" parent="SpritesT"]
+position = Vector2(174, 239)
+texture = ExtResource("5_g4v58")
+
+[node name="PlayerSprite2" type="Sprite2D" parent="SpritesT"]
+position = Vector2(401, 255)
+texture = ExtResource("6_4hh6i")
+region_enabled = true
+region_rect = Rect2(381.6, 0, 99.22, 90.7901)
+
+[node name="Sprite2D2" type="Sprite2D" parent="SpritesT"]
+position = Vector2(174, 203)
+texture = ExtResource("6_uarqd")
+
+[node name="Sprite2D3" type="Sprite2D" parent="SpritesT"]
+position = Vector2(570, 204)
+texture = ExtResource("7_y2m7r")
+region_enabled = true
+region_rect = Rect2(0, 0, 47.7316, 48.0211)
+
+[node name="Sprite2D4" type="Sprite2D" parent="SpritesT"]
+position = Vector2(635, 204)
+texture = ExtResource("8_rcimq")
+region_enabled = true
+region_rect = Rect2(0, 0, 47.7316, 48.0211)
+
+[node name="Sprite2D5" type="Sprite2D" parent="SpritesT"]
+position = Vector2(698, 204)
+texture = ExtResource("9_rr3xs")
+region_enabled = true
+region_rect = Rect2(0, 0, 47.7316, 48.0211)
+
+[node name="Sprite2D6" type="Sprite2D" parent="SpritesT"]
+position = Vector2(653, 328)
+texture = ExtResource("10_a6il6")
+region_rect = Rect2(0, 0, 47.7316, 48.0211)
+
+[node name="Sprite2D7" type="Sprite2D" parent="SpritesT"]
+position = Vector2(596, 328)
+texture = ExtResource("11_rcpcq")
+region_rect = Rect2(0, 0, 47.7316, 48.0211)
+
+[node name="BrTranslation" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 48.0
+offset_top = 344.0
+offset_right = 238.0
+offset_bottom = 393.0
+texture_normal = ExtResource("15_cps0r")
+texture_pressed = ExtResource("16_17b55")
+texture_hover = ExtResource("17_mwk2l")
+
+[node name="MarginContainer" type="MarginContainer" parent="BrTranslation"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="BrLabel" type="Label" parent="BrTranslation/MarginContainer"]
+layout_mode = 2
+text = "Pt-BR"
+label_settings = SubResource("LabelSettings_xl7rp")
+horizontal_alignment = 1
+
+[node name="EnTranslation" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 48.0
+offset_top = 418.0
+offset_right = 238.0
+offset_bottom = 467.0
+texture_normal = ExtResource("15_cps0r")
+texture_pressed = ExtResource("16_17b55")
+texture_hover = ExtResource("17_mwk2l")
+
+[node name="MarginContainer" type="MarginContainer" parent="EnTranslation"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="BrLabel" type="Label" parent="EnTranslation/MarginContainer"]
+layout_mode = 2
+text = "EN-US"
+label_settings = SubResource("LabelSettings_xl7rp")
+horizontal_alignment = 1
+
+[node name="BackToMenu" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 581.0
+offset_top = 404.0
+offset_right = 771.0
+offset_bottom = 453.0
+texture_normal = ExtResource("15_cps0r")
+texture_pressed = ExtResource("16_17b55")
+texture_hover = ExtResource("17_mwk2l")
+
+[node name="MarginContainer" type="MarginContainer" parent="BackToMenu"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MenuLabel" type="Label" parent="BackToMenu/MarginContainer"]
+layout_mode = 2
+text = "Main Menu"
+label_settings = SubResource("LabelSettings_xl7rp")
+horizontal_alignment = 1
+
+[connection signal="pressed" from="BrTranslation" to="." method="_on_br_translation_pressed"]
+[connection signal="pressed" from="EnTranslation" to="." method="_on_en_translation_pressed"]
+[connection signal="pressed" from="BackToMenu" to="." method="_on_back_to_menu_pressed"]

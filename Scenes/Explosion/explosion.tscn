@@ -1,0 +1,62 @@
+[gd_scene load_steps=6 format=3 uid="uid://bjad1esk2ormj"]
+
+[ext_resource type="Script" path="res://Scenes/Explosion/explosion.gd" id="1_ki3qe"]
+[ext_resource type="Texture2D" uid="uid://dwgsa2cvxd63x" path="res://assets/misc/exp2_0.png" id="1_wbj0u"]
+
+[sub_resource type="Animation" id="Animation_vskob"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [5]
+}
+
+[sub_resource type="Animation" id="Animation_1yt64"]
+resource_name = "explosion"
+length = 1.9
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 1.7, 1.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [5, 4, 3, 2, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_dfeih"]
+_data = {
+"RESET": SubResource("Animation_vskob"),
+"explosion": SubResource("Animation_1yt64")
+}
+
+[node name="Explosion" type="Node2D"]
+script = ExtResource("1_ki3qe")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_wbj0u")
+hframes = 4
+vframes = 4
+frame = 5
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_dfeih")
+}
+autoplay = "explosion"
+
+[node name="Sound" type="AudioStreamPlayer2D" parent="."]
+volume_db = -4.0
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

@@ -1,0 +1,31 @@
+[gd_scene load_steps=4 format=3 uid="uid://buxo5xikdyxc3"]
+
+[ext_resource type="Script" path="res://Scenes/EnemyBasics/saucer_manager.gd" id="1_6ccc8"]
+
+[sub_resource type="Curve2D" id="Curve2D_w0x2y"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -2, 145, 0, 0, 0, 0, 844, 151, 0, 0, 0, 0, 871, 158)
+}
+point_count = 3
+
+[sub_resource type="Curve2D" id="Curve2D_ed6wj"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 3, 1, -341.719, -5.33936, 341.719, 5.33936, 431, 262, 0, 0, 0, 0, 823, -5)
+}
+point_count = 3
+
+[node name="SaucerManager" type="Node2D"]
+script = ExtResource("1_6ccc8")
+
+[node name="Paths" type="Node2D" parent="."]
+
+[node name="LeftPath" type="Path2D" parent="Paths"]
+curve = SubResource("Curve2D_w0x2y")
+
+[node name="SecondPath" type="Path2D" parent="Paths"]
+curve = SubResource("Curve2D_ed6wj")
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

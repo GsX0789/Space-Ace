@@ -1,0 +1,30 @@
+[gd_scene load_steps=3 format=3 uid="uid://bmj33ia8eawkg"]
+
+[ext_resource type="PackedScene" uid="uid://bu8r2t3slnknm" path="res://Scenes/EnemyBasics/enemy_basic.tscn" id="1_ren2d"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_o4ga2"]
+radius = 11.0
+height = 26.0
+
+[node name="EnemyZipper" instance=ExtResource("1_ren2d")]
+damage_taken = 30
+
+[node name="AnimatedSprite2D" parent="." index="0"]
+animation = &"zipper1"
+flip_v = true
+
+[node name="Marker2D" type="Marker2D" parent="Booms" index="0"]
+
+[node name="CollisionArea" parent="." index="4"]
+collision_layer = 2
+collision_mask = 5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CollisionArea" index="0"]
+shape = SubResource("CapsuleShape2D_o4ga2")
+
+[node name="HealthBar" parent="." index="5"]
+offset_left = -13.0
+offset_top = -18.0
+offset_right = 13.0
+offset_bottom = -16.0
+maxHealth = 90

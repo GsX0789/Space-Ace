@@ -1,0 +1,49 @@
+[gd_scene load_steps=4 format=3 uid="uid://dw28tx2d42lra"]
+
+[ext_resource type="PackedScene" uid="uid://bu8r2t3slnknm" path="res://Scenes/EnemyBasics/enemy_basic.tscn" id="1_fomn8"]
+[ext_resource type="PackedScene" uid="uid://dsxi10aehk1y3" path="res://Scenes/Lasers/bomber_laser.tscn" id="2_liyvy"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_hgqt2"]
+radius = 17.0
+height = 38.0
+
+[node name="EnemyBomber" instance=ExtResource("1_fomn8")]
+canShoot = true
+aimAtPlayer = true
+bulletScene = ExtResource("2_liyvy")
+bullet_speed = 180.0
+bullet_damage = 30.0
+bullet_waiting_time = 1.8
+time_variation = 0.2
+kill_me_score = 45
+
+[node name="AnimatedSprite2D" parent="." index="0"]
+animation = &"bomber1"
+flip_v = true
+
+[node name="Marker2D" type="Marker2D" parent="Booms" index="0"]
+position = Vector2(-10, -4)
+
+[node name="Marker2D2" type="Marker2D" parent="Booms" index="1"]
+position = Vector2(10, -4)
+
+[node name="Marker2D3" type="Marker2D" parent="Booms" index="2"]
+position = Vector2(10, 15)
+
+[node name="Marker2D4" type="Marker2D" parent="Booms" index="3"]
+position = Vector2(-10, 15)
+
+[node name="CollisionArea" parent="." index="4"]
+collision_layer = 2
+collision_mask = 5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CollisionArea" index="0"]
+position = Vector2(0, 8)
+shape = SubResource("CapsuleShape2D_hgqt2")
+
+[node name="HealthBar" parent="." index="5"]
+offset_left = -20.0
+offset_top = -33.0
+offset_right = 22.0
+offset_bottom = -31.0
+maxHealth = 130
